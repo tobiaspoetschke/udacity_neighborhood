@@ -1,0 +1,67 @@
+/***for all devices***/
+/*make map full height(all parent-elements have to be set)*/
+body, html, .container-fluid, #content-area, #map {
+    height: 100%;
+    min-height: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/*get the search-icon in the search-field*/
+/*http://stackoverflow.com/questions/18838964/add-bootstrap-glyphicon-to-input-box*/
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+}
+/* style icon */
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+.left-addon .glyphicon  {
+    left:  0;
+}
+.right-addon .glyphicon {
+    right: 0;
+}
+.left-addon input  {
+    padding-left:  30px;
+}
+.right-addon input {
+    padding-right: 30px;
+}
+
+/***for mobile***/
+@media screen and (max-width: 767px) {
+
+    #headline {
+        display: inline;
+        font-size: 1.3em;
+    }
+
+    #sidebar {
+        width: 90%;
+        position: absolute;
+        left: -90%;
+        z-index: 9;
+    }
+
+    #sidebar.shown {
+        left: 0;
+    }
+}
+
+/***for desktop etc.***/
+@media screen and (min-width: 768px) {
+    #top-row-for-mobile {
+        display: none;
+    }
+
+    #sidebar {
+        position: relative;
+    }
+}

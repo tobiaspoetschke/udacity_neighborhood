@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <script data-main="scripts/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.3/require.min.js"></script>
+    <title>udacity neighborhood project</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="top-row-for-mobile" class="row">
+            <div>
+                <button type="button" class="btn btn-xs" data-toggle="offcanvas">
+                    <i class="glyphicon glyphicon-menu-hamburger"></i>
+                </button>
+                <h1 id="headline">Neighborhood-Project</h1>
+            </div>
+        </div>
+        <div id="content-area" class="row off-canvas">
+            <nav id="sidebar" class="navbar col-lg-2">
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-search"></i>
+                    <input class="form-control" type="search" data-bind="value: searchQuery,valueUpdate: 'afterkeyup'">
+                </div>
+                <ul class="nav nav-stacked" data-bind="foreach: places">
+                    <li data-bind="text: title"></li>
+                </ul>
+            </nav>
+            <div id="map" class=" col-lg-10"></div>
+        </div>
+    </div>
+</body>
+</html>
