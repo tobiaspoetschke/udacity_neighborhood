@@ -13,6 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "r.js": "^2.3.3"
+    "knockout": "^3.4.2",
+    "requirejs": "^2.3.3"
   }
 }
