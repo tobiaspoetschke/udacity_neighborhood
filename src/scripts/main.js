@@ -28,7 +28,7 @@ requirejs.onError = function(error) {
 };
 
 //main-entry-point for the app
-require(["mapComponent", "appViewModel", "knockout"], function(mapComponent, appViewModel, ko){
+require(["mapComponent", "appViewModel", "knockout", "events"], function(mapComponent, appViewModel, ko, events){
     mapComponent.initialize();
     ko.applyBindings(new appViewModel());
 });

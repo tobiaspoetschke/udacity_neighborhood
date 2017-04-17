@@ -48,6 +48,7 @@ ul {
         position: absolute;
         left: -90%;
         z-index: 9;
+        background-color: whitesmoke;
     }
 
     #sidebar.shown {

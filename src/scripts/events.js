@@ -1,7 +1,11 @@
 'use strict';
-//todo integrate with requirejs, not working now, because never loaded
-$(document).ready(function() {
-    $('[data-toggle=offcanvas]').click(function() {
-        $('#sidebar').toggleClass('shown');
+
+define(function() {
+
+    //toggle navbar for small devices
+    var button = document.getElementById('btn-toggle-navbar');
+    button.addEventListener('click', function() {
+        var sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('shown');
     });
 });
