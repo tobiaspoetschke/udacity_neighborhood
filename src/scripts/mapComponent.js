@@ -28,7 +28,11 @@ define(['gmaps'], function (gmaps) {
             });
             markers.push(marker);
             marker.addListener('click', function () {
-                console.log('clicked on marker');
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+                infoWindow.open(map, marker);
+                window.setTimeout(function() {
+                    marker.setAnimation(null);
+                }, 1420);
             });
         });
     }
@@ -39,6 +43,7 @@ define(['gmaps'], function (gmaps) {
                 createAndDisplayMap();
                 createMarkersOnMap();
                 this.displayMarkers(markers);
+                infoWindow = new google.maps.InfoWindow();
             },
             getMarkers: function() {
                 return markers;
