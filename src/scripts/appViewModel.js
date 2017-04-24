@@ -19,12 +19,9 @@ define(['knockout', 'mapComponent'], function (ko, mapComponent) {
         };
 
         function filterMarkers() {
-            if(mapComponent.getMarkers().length !== 0) {
-                return mapComponent.getMarkers().filter(function (item) {
-                    return item.title.toLowerCase().indexOf(self.searchQuery().toLowerCase()) >= 0;
-                });
-            }
-            return mapComponent.getMarkers();
+            return mapComponent.getMarkers().filter(function (item) {
+                return item.title.toLowerCase().indexOf(self.searchQuery().toLowerCase()) >= 0;
+            });
         }
     }
     return appViewModel;
