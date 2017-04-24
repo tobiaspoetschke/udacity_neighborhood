@@ -26,7 +26,7 @@ requirejs.onError = function(error) {
     //this should only happen, when the google-maps-api is unavailable
     if(error.requireType === 'scripterror') {
         window.alert("Sorry, but the google maps api is unavailable.");
-    } else if(error) {
+    } else if(error) { // this should not happen
         window.alert("Sorry, something went wrong:\n" + error);
     }
 };

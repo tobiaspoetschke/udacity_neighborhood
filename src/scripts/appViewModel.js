@@ -1,5 +1,8 @@
 "use strict";
 
+/*  This is the ViewModel in the Knockout way.
+ *  It is meant to be a singleton. Every attribute/method on the object is used in the view(index.html)
+ */
 define(['knockout', 'mapComponent'], function (ko, mapComponent) {
 
     function appViewModel() {

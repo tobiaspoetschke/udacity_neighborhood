@@ -1,5 +1,9 @@
 "use strict";
 
+/*  This component is for handling everything related to the map.
+ *  It is a singleton with public and private methods/attributes.
+ *  The public interface gets returned at the end of the file.
+ */
 define(['gmaps', 'jquery'], function (gmaps, $) {
 
     var map = {},
@@ -44,7 +48,7 @@ define(['gmaps', 'jquery'], function (gmaps, $) {
         return contentString;
     }
 
-    function getWikipediaData(queryString, marker) {
+    function getWikipediaData(queryString, marker) { // marker in signature to avoid showing old content in infoWindow for short time
         $.ajax( {
             url: 'https://de.wikipedia.org/w/api.php?',
             data: {
