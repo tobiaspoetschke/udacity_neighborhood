@@ -2,6 +2,7 @@
 
 /*  This component is for handling everything related to the map.
  *  It is a singleton with public and private methods/attributes.
+ *  The unusual pattern is the result of my studies/experiments in patterns and modularisation.
  *  The public interface gets returned at the end of the file.
  */
 define(['gmaps', 'jquery'], function (gmaps, $) {

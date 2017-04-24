@@ -15,7 +15,7 @@ define(['knockout', 'mapComponent'], function (ko, mapComponent) {
             return tmpMarkers;
         });
         this.showInfoWindow = function() {
-            mapComponent.showInfoWindow(this); // this is a marker
+            mapComponent.showInfoWindow(this); // "this" is a marker
         };
 
         function filterMarkers() {
