@@ -10,7 +10,10 @@ This project is about showing a map of Leipzig(Germany) and some information abo
 
 
 ## How to build
-comming soon
+- app uses bower for frontend-dependency-management( actually only needed if CDN is unavailable)
+- bower needs to be installed e.g. with npm globally
+- type "bower install" to install frontend-dependencies
+- build with gulp is comming soon
 
 ## How to run
 Just open the index.html file.
