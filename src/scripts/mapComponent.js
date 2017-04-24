@@ -27,13 +27,8 @@ define(['gmaps', 'jquery'], function (gmaps, $) {
                 title: place.title
             });
             markers.push(marker);
-            marker.addListener('click', function () {
-                getWikipediaData(marker.title);
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-                infoWindow.open(map, marker);
-                window.setTimeout(function() {
-                    marker.setAnimation(null);
-                }, 1420);
+            marker.addListener('click', function() {
+                showInfoWindow(marker);
             });
         });
     }
@@ -49,7 +44,7 @@ define(['gmaps', 'jquery'], function (gmaps, $) {
         return contentString;
     }
 
-    function getWikipediaData(queryString) {
+    function getWikipediaData(queryString, marker) {
         $.ajax( {
             url: 'https://de.wikipedia.org/w/api.php?',
             data: {
@@ -63,17 +58,28 @@ define(['gmaps', 'jquery'], function (gmaps, $) {
             },
             error: function() {
                 infoWindow.setContent(createMarkerContentString(queryString));
+            },
+            complete: function() {
+                infoWindow.open(map, marker);
             }
         });
+    }
+
+    function showInfoWindow(marker) {
+        getWikipediaData(marker.title, marker);
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        window.setTimeout(function () {
+            marker.setAnimation(null);
+        }, 1420);
     }
 
     return (function(){ //makes a closure
         return {
             initialize: function () {
                 createAndDisplayMap();
+                infoWindow = new google.maps.InfoWindow();
                 createMarkersOnMap();
                 this.displayMarkers(markers);
-                infoWindow = new google.maps.InfoWindow();
             },
             getMarkers: function() {
                 return markers;
@@ -87,7 +93,8 @@ define(['gmaps', 'jquery'], function (gmaps, $) {
                 filteredMarkers.forEach(function(marker) {
                     marker.setMap(map);
                 });
-            }
+            },
+            showInfoWindow: showInfoWindow
         }
     })();
 });

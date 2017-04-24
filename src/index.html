@@ -26,7 +26,7 @@
                     <input class="form-control" type="search" data-bind="value: searchQuery,valueUpdate: 'afterkeyup'">
                 </div>
                 <ul class="nav nav-stacked" data-bind="foreach: places">
-                    <li data-bind="text: title"></li>
+                    <li data-bind="text: title, click: $parent.showInfoWindow;"></li>
                 </ul>
             </nav>
             <div id="map" class=" col-lg-10"></div>
