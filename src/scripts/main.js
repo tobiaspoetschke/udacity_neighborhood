@@ -12,7 +12,8 @@ require.config({
             //getting the fallback working was to difficult/time-consuming, therefore it will be handled by requirejs.onError
         ],
         "jquery": [
-            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min"
+            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min",
+            "../libs/jquery/dist/jquery.min"
         ]
     }
 });
