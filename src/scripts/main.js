@@ -10,6 +10,9 @@ require.config({
         "gmaps": [
             "https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBpdJY2tYrSbm60O2bZULYlS1IRnHxAgZ4"
             //getting the fallback working was to difficult/time-consuming, therefore it will be handled by requirejs.onError
+        ],
+        "jquery": [
+            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min"
         ]
     }
 });

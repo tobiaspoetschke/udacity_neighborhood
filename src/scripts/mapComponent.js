@@ -1,6 +1,6 @@
 "use strict";
 
-define(['gmaps'], function (gmaps) {
+define(['gmaps', 'jquery'], function (gmaps, $) {
 
     var map = {},
         markers = [],
@@ -28,12 +28,42 @@ define(['gmaps'], function (gmaps) {
             });
             markers.push(marker);
             marker.addListener('click', function () {
+                getWikipediaData(marker.title);
                 marker.setAnimation(google.maps.Animation.BOUNCE);
                 infoWindow.open(map, marker);
                 window.setTimeout(function() {
                     marker.setAnimation(null);
                 }, 1420);
             });
+        });
+    }
+
+    function createMarkerContentString(title, wikipediaData) {
+        var contentString = '<h3>' +  title + '</h3>';
+        if(wikipediaData) {
+            contentString += wikipediaData.query.search[0].snippet;
+            contentString += ' ...'
+        } else {
+            contentString += 'Sorry, but the wikipedia-data could not be loaded';
+        }
+        return contentString;
+    }
+
+    function getWikipediaData(queryString) {
+        $.ajax( {
+            url: 'https://de.wikipedia.org/w/api.php?',
+            data: {
+                action: 'query',
+                list: 'search',
+                srsearch: queryString,
+                format: 'json' },
+            dataType: 'jsonp',
+            success: function(data) {
+                infoWindow.setContent(createMarkerContentString(queryString, data));
+            },
+            error: function() {
+                infoWindow.setContent(createMarkerContentString(queryString));
+            }
         });
     }
 
